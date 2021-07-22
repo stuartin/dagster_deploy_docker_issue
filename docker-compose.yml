@@ -32,6 +32,8 @@ services:
       DAGSTER_CURRENT_IMAGE: "docker_example_pipelines_image"
     networks:
       - docker_example_network
+    volumes:
+      - ./repo.py:/opt/dagster/app/repo.py
 
   # This service runs dagit, which loads the pipelines from the user code container.
   # Since our instance uses the QueuedRunCoordinator, any runs submitted from dagit will be put on
